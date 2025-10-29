@@ -6,7 +6,19 @@ using System.Threading.Tasks;
 
 namespace Sispat.Application.DTOs
 {
-    internal class LocationDtos
+    public class LocationDto
     {
+        public Guid Id { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public string? Building { get; set; }
+        public string? Floor { get; set; }
+    }
+
+    // DTO para criar ou atualizar uma localização
+    public class CreateOrUpdateLocationDto
+    {
+        public string Name { get; set; } = string.Empty;
+        public string? Building { get; set; }
+        public string? Floor { get; set; }
     }
 }
