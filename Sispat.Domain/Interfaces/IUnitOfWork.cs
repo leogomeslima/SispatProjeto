@@ -12,6 +12,6 @@ namespace Sispat.Domain.Interfaces
         IAssetRepository Assets { get; }
         IGenericRepository<Category> Categories { get; }
         IGenericRepository<Location> Locations { get; }
-        Task<int> SaveChangesAsync();
+        Task<int> CompleteAsync();
     }
 }
