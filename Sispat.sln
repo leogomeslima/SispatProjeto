@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sispat.Domain", "Sispat.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sispat.Infrastructure", "Sispat.Infrastructure\Sispat.Infrastructure.csproj", "{90E16B62-526E-4EC7-A25C-B7F3BBF1EB0E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sispat.Application", "Sispat.Applicatio\Sispat.Application.csproj", "{9F3ADC01-FDFC-4203-862D-B896DD8231F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sispat.Application", "Sispat.Application\Sispat.Application.csproj", "{9F3ADC01-FDFC-4203-862D-B896DD8231F2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
