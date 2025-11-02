@@ -32,7 +32,7 @@ Content-Type: application/json
 # 1. Copie o "token" da resposta do Passo A.
 # 2. Cole o token na linha de baixo (substituindo SEU_TOKEN_AQUI).
 # ===================================================================
-@authToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2FvLnNpbHZhQHRlc3RlLmNvbSIsImp0aSI6IjgwMGFiNjBkLTZiNTctNGE1Ny1hMDlkLTA1MGM3ZmJjMzEzMSIsImVtYWlsIjoiam9hby5zaWx2YUB0ZXN0ZS5jb20iLCJ1aWQiOiI1NDdjN2U0MS1jY2E1LTRmNTAtYjRmZi0yYjY1ZmFjODlhNzIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSm9hbyBkYSBTaWx2YSIsImV4cCI6MTc2MTc0NjY5OSwiaXNzIjoiU2lzcGF0QVBJIiwiYXVkIjoiU2lzcGF0QXBwIn0.ghwn_3OA0NUzfTsN6z8rgT1yLbM8agRr56_Y1PMIA64
+@authToken = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJqb2FvLnNpbHZhQHRlc3RlLmNvbSIsImp0aSI6IjcyNzhjMjFlLTZhZWEtNDNmNi04Njg1LTY4NzdiOTQ5NTg5NiIsImVtYWlsIjoiam9hby5zaWx2YUB0ZXN0ZS5jb20iLCJ1aWQiOiI1NDdjN2U0MS1jY2E1LTRmNTAtYjRmZi0yYjY1ZmFjODlhNzIiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSm9hbyBkYSBTaWx2YSIsImV4cCI6MTc2MTk5NDQ5NSwiaXNzIjoiU2lzcGF0QVBJIiwiYXVkIjoiU2lzcGF0QXBwIn0.5vCcL-95GclOWNAcIfziSSWp-SzEGwWOqqhjBR85nfU
 
 ###
 # ===================================================================
@@ -72,14 +72,13 @@ Content-Type: application/json
 # PASSO E: DEFINA O ID DA CATEGORIA
 # 1. Cole o "id" da resposta do Passo C aqui.
 # ===================================================================
-@newCategoryId = ae9d7d7c-9474-4f78-b35c-bcdd39863c2b
-
+@newCategoryId = 2729f69f-e19b-4030-a352-bf4126ff99e0
 ###
 # ===================================================================
 # PASSO F: DEFINA O ID DA LOCALIZAÇÃO
 # 1. Cole o "id" da resposta do Passo D aqui.
 # ===================================================================
-@newLocationId = e4a56cba-f25d-466c-87e5-62a2b6ad8622
+@newLocationId = d8547433-6b54-4905-b081-f748f5043563
 
 ###
 # ===================================================================

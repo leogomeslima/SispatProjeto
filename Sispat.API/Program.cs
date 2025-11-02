@@ -14,9 +14,11 @@ using Sispat.Domain.Interfaces;
 using Sispat.Infrastructure.Persitence;
 using Sispat.Infrastructure.Repositories;
 using System.Text;
+using Sispat.Infrastructure.Identity;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
+builder.Services.AddScoped<IdentityDataSeeder>();
 
 // 1. Configurar CORS (Para o Angular poder acessar a API)
 builder.Services.AddCors(options =>
@@ -24,7 +26,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy("AllowAngularApp",
         policy =>
         {
-            policy.WithOrigins("http://localhost:4200") // Modificar se necessário
+            policy.WithOrigins("http://localhost:52674") // Modificar se necessário
                   .AllowAnyHeader()
                   .AllowAnyMethod();
         });
@@ -116,6 +118,17 @@ builder.Services.AddSwaggerGen(options =>
 // --- Construção do App (Pipeline de HTTP) ---
 
 var app = builder.Build();
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    // Aplica migrações pendentes e cria o banco se não existir
+    var context = services.GetRequiredService<AppDbContext>();
+    context.Database.Migrate();
+    // Popula o banco com dados iniciais (Níveis e Usuário Admin)
+    var seeder = services.GetRequiredService<IdentityDataSeeder>();
+    await seeder.SeedRolesAndAdminAsync();
+}
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
