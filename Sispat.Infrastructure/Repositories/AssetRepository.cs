@@ -1,11 +1,8 @@
-﻿using Sispat.Domain.Entities;
+﻿using Microsoft.EntityFrameworkCore; // <-- IMPORTE O ENTITYFRAMEWORKCORE
+using Sispat.Domain.Entities;
 using Sispat.Domain.Interfaces;
+
 using Sispat.Infrastructure.Persitence;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sispat.Infrastructure.Repositories
 {
@@ -15,10 +12,28 @@ namespace Sispat.Infrastructure.Repositories
         {
         }
 
-        // Exemplo de como você implementaria um método customizado
-        // public async Task<IEnumerable<Asset>> GetAssetsByStatusAsync(AssetStatus status)
-        // {
-        //     return await _dbSet.Where(a => a.Status == status).ToListAsync();
-        // }
+        // --- NOVO MÉTODO (Sobrescrito) ---
+        // Agora, ao buscar todos os ativos, ele "Inclui" os dados relacionados
+        public override async Task<IEnumerable<Asset>> GetAllAsync()
+        {
+            return await _dbSet
+                .Include(a => a.Category)
+                .Include(a => a.Location)
+                .Include(a => a.AssignedToUser)
+                .AsNoTracking() // Opcional, mas bom para performance em listas
+                .ToListAsync();
+        }
+
+        // --- NOVO MÉTODO (Sobrescrito) ---
+        // O FindAsync() (do genérico) NÃO suporta .Include()
+        // Precisamos sobrescrever o GetByIdAsync para usar .FirstOrDefaultAsync()
+        public override async Task<Asset?> GetByIdAsync(Guid id)
+        {
+            return await _dbSet
+                .Include(a => a.Category)
+                .Include(a => a.Location)
+                .Include(a => a.AssignedToUser)
+                .FirstOrDefaultAsync(a => a.Id == id);
+        }
     }
 }
